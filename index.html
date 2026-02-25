@@ -7,131 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        /* RESET E BASE */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            color: #1a1a1a; 
-            line-height: 1.6; 
-            background-color: #fff;
-            -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida */
-        }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-
-        /* HEADER */
-        header { padding: 30px 0; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 900; font-size: 32px; letter-spacing: -1px; }
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #555; }
-
-        /* SEARCH SECTION */
-        .search-section { padding: 40px 0; }
-        .search-bar { 
-            background: #000; 
-            width: 100%;
-            max-width: 800px; 
-            margin: 0 auto; 
-            border-radius: 50px; 
-            padding: 18px 30px; 
-            display: flex; 
-            justify-content: flex-end;
-            align-items: center;
-        }
-        /* Estilo do novo ícone SVG */
-        .search-icon { 
-            cursor: pointer; 
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            opacity: 0.9;
-        }
-        .search-icon:hover {
-            transform: scale(1.05);
-            opacity: 1;
-        }
-
-        /* TITLES */
-        .main-title-section { text-align: center; padding: 80px 0 60px; }
-        .main-title-section h1 { font-size: 48px; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; letter-spacing: -1px; }
-        .main-title-section p { color: #888; font-size: 14px; }
-
-        /* CARDS GRID */
-        .cards-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 40px; 
-            margin-bottom: 100px; 
-        }
-        .card { display: flex; flex-direction: column; }
-        
-        .card-image { 
-            border-radius: 20px; 
-            overflow: hidden; /* Garante que a imagem não vaze das bordas arredondadas */
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px -10px rgba(0, 114, 255, 0.3); /* Sombra azul suave */
-        }
-        
-        .card-content h3 { font-size: 15px; font-weight: 900; margin-bottom: 12px; text-transform: uppercase; }
-        .card-content p { font-size: 13px; color: #666; line-height: 1.8; }
-
-        /* TEXT CONTENT SECTION */
-        .conduct-section { margin-bottom: 120px; max-width: 1000px; }
-        .conduct-section h2 { font-size: 18px; font-weight: 900; margin-bottom: 20px; }
-        .conduct-section p { font-size: 14px; color: #555; text-align: justify; line-height: 1.9; }
-
-        /* FOOTER */
-        footer { padding: 80px 0; display: flex; justify-content: space-between; align-items: flex-start; border-top: 1px solid #f0f0f0; }
-        .footer-links { width: 35%; }
-        .footer-links .plus { font-size: 24px; margin-bottom: 20px; display: block; font-weight: 300; }
-        .footer-links ul li { margin-bottom: 12px; }
-        .footer-links ul li a { font-size: 11px; font-weight: 700; color: #999; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
-        .footer-links ul li a:hover { color: #000; }
-
-        .newsletter-box { background: #f7f7f9; padding: 50px; border-radius: 8px; width: 55%; }
-        .newsletter-box h4 { font-size: 12px; font-weight: 900; margin-bottom: 25px; text-transform: uppercase; }
-        
-        .input-group { 
-            display: flex; 
-            background: white; 
-            border: 1px solid #e5e5e5; 
-            padding: 5px; 
-            border-radius: 4px; 
-        }
-        .input-group input { 
-            border: none; 
-            padding: 15px; 
-            flex: 1; 
-            outline: none; 
-            font-size: 14px;
-        }
-        .input-group button { 
-            background: black; 
-            color: white; 
-            border: none; 
-            width: 50px;
-            font-size: 20px;
-            cursor: pointer; 
-            border-radius: 2px;
-            transition: background 0.3s;
-        }
-        .input-group button:hover { background: #333; }
-        
-        .newsletter-box .disclaimer { font-size: 10px; color: #aaa; margin-top: 15px; }
-
-        /* RESPONSIVIDADE */
-        @media (max-width: 900px) {
-            .cards-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
-            footer { flex-direction: column; gap: 60px; }
-            .footer-links, .newsletter-box { width: 100%; }
-            .nav-links { display: none; }
-            .search-bar { padding: 15px 20px; }
-            .main-title-section h1 { font-size: 36px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -148,13 +24,15 @@
         </header>
 
         <section class="search-section">
-            <div class="search-bar">
-                <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </div>
-        </section>
+    <div class="search-bar">
+        <input type="text" placeholder="O que você procura?" aria-label="Pesquisar">
+        
+        <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+    </div>
+</section>
 
         <main>
             <section class="main-title-section">
@@ -165,7 +43,7 @@
             <section class="cards-grid">
                 <article class="card">
                     <div class="card-image">
-                        <img src="image_2.png" alt="Card de Introdução ao Atendimento N1">
+                        <img src="img/tpn-0.png" alt="Introdução">
                     </div>
                     <div class="card-content">
                         <h3>Suporte N1 | [0] - Introdução</h3>
@@ -175,7 +53,7 @@
 
                 <article class="card">
                     <div class="card-image">
-                        <img src="image_1.png" alt="Card de Atendimento N1">
+                        <img src="img/tpn-1.png" alt="Atendimento">
                     </div>
                     <div class="card-content">
                         <h3>Suporte N1 | [1] - Atendimento</h3>
@@ -185,7 +63,7 @@
 
                 <article class="card">
                     <div class="card-image">
-                        <img src="image_3.png" alt="Card Técnico N1">
+                        <img src="img/tpn-2.png" alt="Técnico">
                     </div>
                     <div class="card-content">
                         <h3>Suporte N1 | [2] - Técnico</h3>
@@ -216,7 +94,7 @@
                 <h4>Newsletter</h4>
                 <div class="input-group">
                     <input type="email" placeholder="Seu e-mail">
-                    <button>→</button>
+                    <button aria-label="Enviar">→</button>
                 </div>
                 <p class="disclaimer">Se inscreva com o seu melhor e-mail e seja notificado em novas postagens de conteúdo.</p>
             </div>
