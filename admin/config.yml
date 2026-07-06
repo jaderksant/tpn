@@ -15,7 +15,7 @@ collections:
     fields:
       - {label: "Nome do Módulo (Ex: Suporte N1 | [0] - Introdução)", name: "title", widget: "string"}
       - {label: "Descrição Curta (O texto do card)", name: "description", widget: "text"}
-      - {label: "Imagem do Card", name: "image", widget: "image"}
+      - {label: "Imagem do Card", name: "image", widget: "image", required: false}
 
   # 2. GERENCIADOR DE ARTIGOS (As postagens / Resoluções de B.O.)
   - name: "artigos"
