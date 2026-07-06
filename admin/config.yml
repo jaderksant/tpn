@@ -9,13 +9,18 @@ collections:
   # 1. GERENCIADOR DE CATEGORIAS (Os cards da Home)
   - name: "categorias"
     label: "Módulos (Cards)"
-    folder: "categorias" # Vai criar uma pasta nova no seu GitHub pra salvar os módulos
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Nome do Módulo (Ex: Suporte N1 | [0] - Introdução)", name: "title", widget: "string"}
-      - {label: "Descrição Curta (O texto do card)", name: "description", widget: "text"}
-      - {label: "Imagem do Card", name: "image", widget: "image", required: false}
+    files:
+      - label: "Lista de Módulos"
+        name: "lista_modulos"
+        file: "dados/modulos.json" # Agora tudo fica em um arquivo só!
+        fields:
+          - label: "Módulos Cadastrados"
+            name: "itens"
+            widget: "list"
+            fields:
+              - {label: "Nome do Módulo", name: "title", widget: "string"}
+              - {label: "Descrição Curta", name: "description", widget: "text"}
+              - {label: "Imagem do Card", name: "image", widget: "image", required: false}
 
   # 2. GERENCIADOR DE ARTIGOS (As postagens / Resoluções de B.O.)
   - name: "artigos"

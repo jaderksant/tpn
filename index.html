@@ -105,6 +105,33 @@
             </div>
         </footer>
     </div>
-
+<script>
+    // Esse script vai lá no arquivo que o painel criou, pega os dados e desenha os cards
+    fetch('dados/modulos.json')
+        .then(response => response.json())
+        .then(data => {
+            const grid = document.querySelector('.cards-grid');
+            grid.innerHTML = ''; // Isso apaga os cards antigos "chumbados" no código
+            
+            // Aqui ele cria um card novo pra cada módulo que você cadastrou no painel
+            if (data.itens && data.itens.length > 0) {
+                data.itens.forEach(modulo => {
+                    const card = `
+                        <article class="card">
+                            <div class="card-image">
+                                <img src="${modulo.image || ''}" alt="${modulo.title}">
+                            </div>
+                            <div class="card-content">
+                                <h3>${modulo.title}</h3>
+                                <p>${modulo.description}</p>
+                            </div>
+                        </article>
+                    `;
+                    grid.innerHTML += card;
+                });
+            }
+        })
+        .catch(err => console.log('Erro ao carregar os módulos:', err));
+</script>
 </body>
 </html>
