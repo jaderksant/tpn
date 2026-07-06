@@ -1,18 +1,32 @@
 backend:
   name: git-gateway
-  branch: main # Mude para 'master' se a sua branch principal no GitHub for master
+  branch: main # Mude para 'master' se a sua branch principal for master
 
-media_folder: "img/uploads" # A pasta onde as imagens dos posts vão ser salvas
+media_folder: "img/uploads"
 public_folder: "/img/uploads"
 
 collections:
-  - name: "artigos" # Nome interno
-    label: "Artigos TPN" # Nome que vai aparecer pra você no painel
-    folder: "posts" # Pasta onde os arquivos de texto vão ser salvos
+  # 1. GERENCIADOR DE CATEGORIAS (Os cards da Home)
+  - name: "categorias"
+    label: "Módulos (Cards)"
+    folder: "categorias" # Vai criar uma pasta nova no seu GitHub pra salvar os módulos
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nome do Módulo (Ex: Suporte N1 | [0] - Introdução)", name: "title", widget: "string"}
+      - {label: "Descrição Curta (O texto do card)", name: "description", widget: "text"}
+      - {label: "Imagem do Card", name: "image", widget: "image"}
+
+  # 2. GERENCIADOR DE ARTIGOS (As postagens / Resoluções de B.O.)
+  - name: "artigos"
+    label: "Artigos TPN"
+    folder: "posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Título do Problema", name: "title", widget: "string"}
+      # A MÁGICA ACONTECE AQUI: Ele busca os títulos lá na coleção de categorias
+      - {label: "Módulo/Categoria", name: "categoria", widget: "relation", collection: "categorias", search_fields: ["title"], value_field: "title", display_fields: ["title"]}
       - {label: "Data", name: "date", widget: "datetime"}
       - {label: "Imagem de Capa", name: "thumbnail", widget: "image", required: false}
       - {label: "Solução (Conteúdo)", name: "body", widget: "markdown"}
