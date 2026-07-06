@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main # Mude para 'master' se a sua branch principal no GitHub for master
+
+media_folder: "img/uploads" # A pasta onde as imagens dos posts vão ser salvas
+public_folder: "/img/uploads"
+
+collections:
+  - name: "artigos" # Nome interno
+    label: "Artigos TPN" # Nome que vai aparecer pra você no painel
+    folder: "posts" # Pasta onde os arquivos de texto vão ser salvos
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título do Problema", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Imagem de Capa", name: "thumbnail", widget: "image", required: false}
+      - {label: "Solução (Conteúdo)", name: "body", widget: "markdown"}
